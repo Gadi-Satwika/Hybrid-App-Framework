@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { Bar } from 'react-chartjs-2';
 import './App.css';
@@ -24,7 +24,7 @@ function App() {
     e.preventDefault();
     try {
       // We "test" the credentials by trying to fetch history
-      const res = await axios.get('https://hybrid-app-framework.onrender.com/api/upload/', authHeader);
+      const res = await axios.get('http://127.0.0.1:8000/api/upload/', authHeader);
       setHistory(res.data);
       setIsLoggedIn(true);
     } catch (err) {
@@ -37,19 +37,19 @@ function App() {
     const formData = new FormData();
     formData.append('file', file);
     try {
-      const res = await axios.post('https://hybrid-app-framework.onrender.com/api/upload/', formData, authHeader);
+      const res = await axios.post('http://127.0.0.1:8000/api/upload/', formData, authHeader);
       setAnalytics(res.data);
       fetchHistory();
     } catch (err) { alert("Upload failed. Check file format."); }
   };
 
   const fetchHistory = async () => {
-    const res = await axios.get('https://hybrid-app-framework.onrender.com/api/upload/', authHeader);
+    const res = await axios.get('http://127.0.0.1:8000/api/upload/', authHeader);
     setHistory(res.data);
   };
 
   const downloadPDF = async (id) => {
-    const res = await axios.get(`https://hybrid-app-framework.onrender.com/api/report/${id}/`, { ...authHeader, responseType: 'blob' });
+    const res = await axios.get(`http://127.0.0.1:8000/api/report/${id}/`, { ...authHeader, responseType: 'blob' });
     const url = window.URL.createObjectURL(new Blob([res.data]));
     const link = document.createElement('a');
     link.href = url;
@@ -60,7 +60,7 @@ function App() {
 
   const deleteRecord = async (id) => {
     if (!window.confirm("Delete this record?")) return;
-    await axios.delete(`https://hybrid-app-framework.onrender.com/api/delete/${id}/`, authHeader);
+    await axios.delete(`http://127.0.0.1:8000/api/delete/${id}/`, authHeader);
     fetchHistory();
     setAnalytics(null);
   };
