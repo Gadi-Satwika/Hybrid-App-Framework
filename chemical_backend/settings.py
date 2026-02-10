@@ -27,6 +27,8 @@ SECRET_KEY = "django-insecure-^cqkx7h=5%t=2ye^wf&3=7b#bg!87eb&)1z=$)z7v081n8-3-#
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
+if 'RENDER_EXTERNAL_HOSTNAME' in os.environ:
+    ALLOWED_HOSTS.append(os.environ.get('RENDER_EXTERNAL_HOSTNAME'))
 
 
 # Application definition
@@ -133,6 +135,7 @@ STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # This enables the compression and caching of static files
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# Change from CompressedManifestStaticFilesStorage to this:
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 CORS_ALLOW_ALL_ORIGINS = True
