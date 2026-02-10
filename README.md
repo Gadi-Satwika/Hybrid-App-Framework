@@ -74,4 +74,4 @@ A robust, cross-platform ecosystem designed for industrial equipment monitoring.
 
 
 ### Developed by: Gadi Satwika 3rd Year B.Tech CSE Student, RGUKT RK Valley
-
+### Contact: Email-> satwikagadi2005@gmail.com
