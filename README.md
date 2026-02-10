@@ -27,29 +27,39 @@ A robust, cross-platform ecosystem designed for industrial equipment monitoring.
 1. Backend Setup
 
   # Clone the repository
+  
   git clone https://github.com/Gadi-Satwika/Hybrid-App-Framework.git
+  
   cd Hybrid-App-Framework
   
   # Create and activate virtual environment
+  
   python -m venv venv
+  
   source venv/bin/activate  # On Windows: venv\Scripts\activate
   
   # Install dependencies
+  
   pip install -r requirements.txt
   
   # Run migrations and start server
+  
   python manage.py migrate
+  
   python manage.py runserver
 
 2. Web Frontend Setup
 
   cd chemical_frontend
+  
   npm install
+  
   npm start
 
 3. Desktop App Setup
    
   cd desktop_app
+  
   python main.py
   
 ## ✨ Features
@@ -64,9 +74,4 @@ A robust, cross-platform ecosystem designed for industrial equipment monitoring.
 
 
 ### Developed by: Gadi Satwika 3rd Year B.Tech CSE Student, RGUKT RK Valley
-
-->Cross-Platform Integration: Unified API serving both Web and Desktop clients.
-->Secure Authentication: Implements Basic Authentication for industrial data security.
-->Automated Analytics: Processes CSV equipment data using Pandas to detect anomalies.
-->Professional Reporting: Generates downloadable PDF reports using ReportLab.
 
